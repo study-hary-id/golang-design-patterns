@@ -1,0 +1,1 @@
+module "golang-design-patterns"
