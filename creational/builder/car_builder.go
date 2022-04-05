@@ -1,21 +1,29 @@
 package builder
 
-// Inherited from BuildProcess
+// CarBuilder contains a set of build processes to build a car.
 type CarBuilder struct {
+	vehicle VehicleProduct
 }
 
+// SetSeats used to set vehicle's seats.
 func (c *CarBuilder) SetSeats() BuildProcess {
-	return nil
+	c.vehicle.Seats = 5
+	return c
 }
 
+// SetWheels used to set vehicle's wheels.
 func (c *CarBuilder) SetWheels() BuildProcess {
-	return nil
+	c.vehicle.Wheels = 4
+	return c
 }
 
+// SetStructure used to set vehicle's structure.
 func (c *CarBuilder) SetStructure() BuildProcess {
-	return nil
+	c.vehicle.Structure = "Car"
+	return c
 }
 
+// Build used to build constructed vehicle from ManufacturingDirector.
 func (c *CarBuilder) Build() VehicleProduct {
-	return VehicleProduct{}
+	return c.vehicle
 }
