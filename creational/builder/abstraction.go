@@ -11,7 +11,7 @@ type BuildProcess interface {
 // VehicleProduct represents the actual product,
 // built by builder struct.
 type VehicleProduct struct {
-	Seats int
-	Wheels int
+	Seats     int
+	Wheels    int
 	Structure string
 }
