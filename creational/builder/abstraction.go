@@ -1,6 +1,6 @@
 package builder
 
-// Abstraction layer
+// BuildProcess is an abstraction to each builder struct.
 type BuildProcess interface {
 	SetSeats() BuildProcess
 	SetWheels() BuildProcess
@@ -8,7 +8,8 @@ type BuildProcess interface {
 	Build() VehicleProduct
 }
 
-// Actual product
+// VehicleProduct represents the actual product,
+// built by builder struct.
 type VehicleProduct struct {
 	Seats int
 	Wheels int
