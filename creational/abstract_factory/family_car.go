@@ -1,6 +1,10 @@
 package abstract_factory
 
-type FamilyCar struct {}
+/*
+Multiple implementations from Vehicle and Car.
+*/
+
+type FamilyCar struct{}
 
 func (l *FamilyCar) NumDoors() int {
 	return 5
