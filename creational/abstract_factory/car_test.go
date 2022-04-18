@@ -16,7 +16,7 @@ func TestLuxuryCarType(t *testing.T) {
 		t.Fatal(err)
 	}
 	t.Logf(
-		"LuxuryCar has seats: %d, wheels: %d\n",
+		"LuxuryCar has seats: %d, wheels: %d",
 		carVehicle.NumSeats(),
 		carVehicle.NumWheels(),
 	)
@@ -26,7 +26,7 @@ func TestLuxuryCarType(t *testing.T) {
 	if !ok {
 		t.Fatal("Struct assertion has failed.")
 	}
-	t.Logf("Luxury car has doors: %d\n", luxuryCar.NumDoors())
+	t.Logf("Luxury car has doors: %d", luxuryCar.NumDoors())
 }
 
 // TestFamilyCarType executes a sets of sequence to create a FamilyCar.
@@ -43,7 +43,7 @@ func TestFamilyCarType(t *testing.T) {
 		t.Fatal(err)
 	}
 	t.Logf(
-		"FamilyCar has seats: %d, wheels: %d\n",
+		"FamilyCar has seats: %d, wheels: %d",
 		carVehicle.NumSeats(),
 		carVehicle.NumWheels(),
 	)
@@ -52,5 +52,5 @@ func TestFamilyCarType(t *testing.T) {
 	if !ok {
 		t.Fatal("Struct assertion has failed.")
 	}
-	t.Logf("Luxury car has doors: %d\n", familyCar.NumDoors())
+	t.Logf("Luxury car has doors: %d", familyCar.NumDoors())
 }
