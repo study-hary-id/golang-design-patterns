@@ -1,15 +1,15 @@
 package builder
 
-// BuildProcess is an abstraction to each builder struct.
-type BuildProcess interface {
-	SetSeats() BuildProcess
-	SetWheels() BuildProcess
-	SetStructure() BuildProcess
+// VehicleBuildProcess is an abstraction for each builder.
+type VehicleBuildProcess interface {
+	SetSeats() VehicleBuildProcess
+	SetWheels() VehicleBuildProcess
+	SetStructure() VehicleBuildProcess
 	Build() VehicleProduct
 }
 
 // VehicleProduct represents the actual product,
-// built by builder struct.
+// built by builder that implements VehicleBuildProcess.
 type VehicleProduct struct {
 	Seats     int
 	Wheels    int

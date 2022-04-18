@@ -1,16 +1,16 @@
 package builder
 
-// ManufacturingDirector uses as a dependency to construct any builder.
+// ManufacturingDirector is a dependency to construct any builder.
 type ManufacturingDirector struct {
-	builder BuildProcess
+	builder VehicleBuildProcess
 }
 
-// Construct will construct a vehicle based on current builder.
+// Construct sets properties of VehicleProduct.
 func (m *ManufacturingDirector) Construct() {
 	m.builder.SetSeats().SetStructure().SetWheels()
 }
 
-// SetBuilder used to set which builder to use.
-func (m *ManufacturingDirector) SetBuilder(b BuildProcess) {
+// SetBuilder sets a builder to ManufacturingDirector.
+func (m *ManufacturingDirector) SetBuilder(b VehicleBuildProcess) {
 	m.builder = b
 }
