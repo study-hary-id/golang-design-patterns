@@ -5,17 +5,18 @@ import (
 	"fmt"
 )
 
-// Motorbike is an abstraction for motorbike structures.
+// Motorbike is another abstraction for vehicle product.
 type Motorbike interface {
 	GetMotorbikeType() int
 }
 
+// Enumeration of specific Motorbike type.
 const (
 	SportMotorbikeType  = 1
 	CruiseMotorbikeType = 2
 )
 
-// MotorbikeFactory used to build any available Motorbike structure.
+// MotorbikeFactory used to build any available Motorbike type.
 type MotorbikeFactory struct{}
 
 // NewVehicle returns chosen Motorbike type.
@@ -27,7 +28,7 @@ func (m *MotorbikeFactory) NewVehicle(v int) (Vehicle, error) {
 		return new(CruiseMotorbike), nil
 	default:
 		return nil, errors.New(
-			fmt.Sprintf("error: vehicle of type %d isn't recognized", v),
+			fmt.Sprintf("error: motorbike of type %d isn't recognized", v),
 		)
 	}
 }
