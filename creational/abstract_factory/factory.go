@@ -5,19 +5,18 @@ import (
 	"fmt"
 )
 
-// Vehicle is an abstraction for each vehicle structures,
-// each vehicles must implement this interface.
+// Vehicle is an abstraction for any vehicle product.
 type Vehicle interface {
 	NumWheels() int
 	NumSeats() int
 }
 
-// VehicleFactory is an abstraction for each vehicle factory,
-// each factory structures should use Factory suffix.
+// VehicleFactory is an abstraction for each vehicle factory.
 type VehicleFactory interface {
 	NewVehicle(v int) (Vehicle, error)
 }
 
+// Enumeration of generic vehicle factory.
 const (
 	CarFactoryType       = 1
 	MotorbikeFactoryType = 2
