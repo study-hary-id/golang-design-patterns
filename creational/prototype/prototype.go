@@ -5,27 +5,28 @@ import (
 	"fmt"
 )
 
-// ShirtCloner is an abstraction to any cloner structures.
+/*
+Cloner interface
+*/
+
+// ShirtCloner is an abstraction to any cloner.
 type ShirtCloner interface {
 	GetClone(s int) (ItemInfoGetter, error)
 }
-
-const (
-	White = 1
-	Black = 2
-	Blue  = 3
-)
 
 // GetShirtCloner returns the instance of ShirtCloner.
 func GetShirtCloner() ShirtCloner {
 	return new(ShirtCache)
 }
 
-// ShirtCache used to cache any Shirt,
-// implemented from ShirtCloner
+/*
+Cloner implementation
+*/
+
+// ShirtCache used to cache any Shirt, or clone.
 type ShirtCache struct{}
 
-// GetClone gives a clone Shirt.
+// GetClone returns cloned shirt.
 func (sc *ShirtCache) GetClone(s int) (ItemInfoGetter, error) {
 	switch s {
 	case White:
@@ -42,10 +43,25 @@ func (sc *ShirtCache) GetClone(s int) (ItemInfoGetter, error) {
 	}
 }
 
-// ItemInfoGetter is an abstraction to any prototype object.
+/*
+Product interface
+*/
+
+// ItemInfoGetter is an abstraction to any prototype instance.
 type ItemInfoGetter interface {
 	GetInfo() string
 }
+
+/*
+Product implementation with ShirtColor type.
+*/
+
+// Enumeration color for Shirt.
+const (
+	White = 1
+	Black = 2
+	Blue  = 3
+)
 
 type ShirtColor byte
 
@@ -70,6 +86,10 @@ func (s *Shirt) GetInfo() string {
 func (s *Shirt) GetPrice() float32 {
 	return s.Price
 }
+
+/*
+Prototype instance, used to be clone.
+*/
 
 var whitePrototype *Shirt = &Shirt{
 	SKU:   "empty",
