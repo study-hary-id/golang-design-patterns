@@ -2,14 +2,15 @@ package singleton
 
 import "testing"
 
-// TestGetInstance calls GetInstance and increments the instance.
+// TestGetInstance calls GetInstance and increments the instance,
+// create another instance and ensure that the new instance
+// is the same as the previous one.
 func TestGetInstance(t *testing.T) {
-	// Get the counter instance.
+	// Get the singleton/counter instance.
 	counter := GetInstance()
 	if counter == nil {
-		t.Errorf("GetInstance() = %v, want match for pointer, nil", counter)
+		t.Errorf("GetInstance() = %v, nil", counter)
 	}
-	expectedCounter := counter
 
 	// Increment the counter using AddOne method.
 	currentCount := counter.AddOne()
@@ -19,15 +20,15 @@ func TestGetInstance(t *testing.T) {
 
 	// Expected same instance from the first counter.
 	secondCounter := GetInstance()
-	if secondCounter != expectedCounter {
+	if secondCounter != counter {
 		t.Errorf(
 			"GetInstance() = %v, want match for %v, nil",
 			secondCounter,
-			expectedCounter,
+			counter,
 		)
 	}
 
-	// Increment the same counter since counter and secondCounter
+	// Increment `secondCounter` since `counter` and `secondCounter`
 	// are the same reference.
 	currentCount = secondCounter.AddOne()
 	if currentCount != 2 {
