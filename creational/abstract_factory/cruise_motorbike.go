@@ -1,9 +1,9 @@
 package abstract_factory
 
-type CruiseMotorbike struct {}
+type CruiseMotorbike struct{}
 
 func (s *CruiseMotorbike) NumSeats() int {
-	return 1
+	return 2
 }
 
 func (s *CruiseMotorbike) NumWheels() int {

@@ -1,6 +1,6 @@
 package abstract_factory
 
-type SportMotorbike struct {}
+type SportMotorbike struct{}
 
 func (s *SportMotorbike) NumSeats() int {
 	return 1
